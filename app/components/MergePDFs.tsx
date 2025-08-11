@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import FileUpload from "./FileUpload";
+import FileUpload from "./PDFFileUpload";
 import LoadingSpinner from "./LoadingSpinner";
 
 interface UploadedPDF {

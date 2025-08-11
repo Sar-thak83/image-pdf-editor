@@ -151,7 +151,7 @@ export default function FileUpload({
           {/* Floating Animation Ring */}
           <div
             className={`
-            absolute inset-0 w-24 h-24 mx-auto rounded-full border-2 border-dashed 
+            absolute inset-0 w-24 h-24 mx-auto rounded-full border-2 border-dashed
             transition-all duration-700 transform group-hover:scale-125 group-hover:rotate-180
             ${
               isDragActive
@@ -174,7 +174,7 @@ export default function FileUpload({
             }
           `}
           >
-            {isDragActive ? "Drop your files here!" : "Upload your images"}
+            {isDragActive ? "Drop your files here!" : "Upload your PDF files"}
           </h3>
 
           <p
@@ -256,10 +256,10 @@ export default function FileUpload({
         {/* Supported Formats */}
         <div className="pt-4 border-t border-gray-200/50">
           <p className="text-xs text-gray-500 font-medium">
-            Supported formats: JPG, PNG, WebP, GIF
+            Supported formats: PDF
           </p>
           <div className="flex justify-center mt-2 space-x-2">
-            {["JPG", "PNG", "WebP", "GIF"].map((format, index) => (
+            {["PDF"].map((format, index) => (
               <span
                 key={format}
                 className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md font-mono"
