@@ -1,101 +1,123 @@
-# image-pdf-editor
+# Image & PDF Editor
 
-Small, privacy-first web app (Next.js + TypeScript) to edit photos and export PDFs. All processing runs in the browser — no server required.
+A privacy-first web application for photo editing and PDF manipulation. All processing happens in your browser — no uploads, no server, no data collection.
 
-## Summary
-
-- Background remover (transparent PNG)
-- Background changer with passport/visa color presets
-- Convert multiple images (JPG/PNG) into a single PDF
-- Responsive UI with drag-and-drop and reorder support
-
-## Quick start (local)
-
-1. Install Node 18 and use it:
-   ```bash
-   nvm install 18 && nvm use 18
-   ```
-2. Install dependencies and run dev server:
-   ```bash
-   npm ci
-   npm run dev
-   ```
-3. Build for production:
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
-## Netlify / CI notes
-
-- Ensure package.json contains a "build" script and a lockfile (package-lock.json / yarn.lock / pnpm-lock.yaml) is committed.
-- Force Node 18 for Netlify with one of:
-  - Add an `.nvmrc` containing `18` at repo root
-  - Add in package.json: `"engines": { "node": "18.x" }`
-  - Set environment variable NODE_VERSION = 18 in Netlify site settings
-- After changes, push to main and re-deploy. If the build fails, copy the full "Installing dependencies" / "Running build" error output for diagnosis.
-
-## Troubleshooting (common)
-
-- "No build script": add `"build": "next build"` (or the correct command) to package.json.
-- Node version mismatch: use .nvmrc / engines or set NODE_VERSION in CI.
-- Missing files/imports: ensure src/, public/, and assets referenced by code are committed.
-- If a bundler error names a missing package, confirm it exists in package.json and lockfile is committed.
-
-## Project structure (high level)
-
-- app/ or pages/ — Next.js app router / pages
-- src/ — TypeScript source
-- public/ — static assets
-- styles/ — Tailwind / global styles
-
-## Contributing
-
-- Bug reports and PRs welcome. Keep changes small and focused.
-
-## License
-
-- MIT
-
-## Developer Portfolio (example)
-
-# Developer Portfolio
-
-A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
 
 ## Features
 
-- **Hero Section** - Eye-catching introduction with profile image and social links
-- **About** - Personal background and professional summary
-- **Skills** - Organized by Languages, Frameworks, Libraries, Databases, Tools, and Platforms
-- **Projects** - Showcase of work with multi-category filtering
-- **Experience** - Professional work history and achievements
-- **Certifications** - Relevant certifications and credentials
-- **Dark Mode** - Seamless light/dark theme switching
-- **Responsive Design** - Optimized for all devices
+- **Background Removal** — Remove image backgrounds with AI, export as transparent PNG
+- **Background Changer** — Apply solid colors with passport/visa photo presets (white, blue, red, grey)
+- **Image to PDF** — Combine multiple JPG/PNG images into a single PDF document
+- **PDF Tools** — Merge, split, and convert PDFs (coming soon)
+- **Privacy First** — All processing runs locally in your browser using WebAssembly and TensorFlow.js
 
-## Tech Stack
+## Live Demo
 
-- **Framework**: Next.js 
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Language**: TypeScript
-- **Animations**: Smooth transitions and scroll reveals
+🔗 **[Try it now](https://image-pdf-editor-sar-thak83.netlify.app/)** — No signup required!
 
-## Getting Started
+## Quick Start
 
-1. Clone the repository
-2. Install dependencies: `npm install` or `pnpm install`
-3. Run the development server: `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+### Prerequisites
 
-## Customization
+- Node.js 18.x or higher ([Download](https://nodejs.org/))
+- npm, yarn, or pnpm
 
-- Update personal information in data files (`lib/skills-data.ts`, `lib/projects-data.ts`, etc.)
-- Modify colors and theme in `app/globals.css`
-- Replace profile images in the `public` folder
-- Update social media links in `components/hero-section.tsx`
+### Local Development
+
+```bash
+# Clone the repository
+git clone https://github.com/Sar-thak83/image-pdf-editor.git
+cd image-pdf-editor
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for Production
+
+```bash
+# Create optimized production build
+npm run build
+
+# Preview production build locally
+npm start
+```
 
 ## Deployment
 
-Deploy easily to Vercel with one click or use any Node.js hosting platform.
+### Deploy to Netlify
+
+1. **Connect your repository** to Netlify
+2. **Configure build settings:**
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+   - Node version: `18.x`
+
+The app will auto-deploy on every push to `main`.
+
+
+## Technology Stack
+
+- **Framework:** [Next.js 15](https://nextjs.org/) with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **AI Models:** TensorFlow.js, MediaPipe Selfie Segmentation
+- **PDF Processing:** pdf-lib, jsPDF
+- **Icons:** Lucide React
+
+## Project Structure
+
+```
+image-pdf-editor/
+├── app/                    # Next.js App Router
+│   ├── components/         # React components
+│   ├── utils/              # Helper functions
+│   └── page.tsx            # Home page
+├── public/                 # Static assets
+├── .nvmrc                  # Node version specification
+├── next.config.js          # Next.js configuration
+├── tailwind.config.ts      # Tailwind CSS configuration
+└── package.json            # Dependencies and scripts
+```
+
+## Troubleshooting
+
+### Build Failures
+
+**ESLint/TypeScript errors blocking deployment?**
+
+Add this to `next.config.js`:
+
+```javascript
+module.exports = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
+```
+
+## Roadmap
+
+- [ ] PDF splitting and merging
+- [ ] PDF to DOCX conversion
+- [ ] Batch image processing
+- [ ] Custom background uploads
+- [ ] Image filters and adjustments
+- [ ] PWA support for offline use
+
+## Privacy & Security
+
+- ✅ **No data leaves your device** — all processing is client-side
+- ✅ **No cookies or tracking** — we don't collect analytics
+- ✅ **No uploads** — files stay in your browser's memory
+- ✅ **Open source** — audit the code yourself
+
