@@ -1,121 +1,101 @@
-# Photo Tools Web Application
+# image-pdf-editor
 
-A modern, TypeScript-based web application built with Next.js that provides three essential photo editing tools:
+Small, privacy-first web app (Next.js + TypeScript) to edit photos and export PDFs. All processing runs in the browser — no server required.
+
+## Summary
+
+- Background remover (transparent PNG)
+- Background changer with passport/visa color presets
+- Convert multiple images (JPG/PNG) into a single PDF
+- Responsive UI with drag-and-drop and reorder support
+
+## Quick start (local)
+
+1. Install Node 18 and use it:
+   ```bash
+   nvm install 18 && nvm use 18
+   ```
+2. Install dependencies and run dev server:
+   ```bash
+   npm ci
+   npm run dev
+   ```
+3. Build for production:
+   ```bash
+   npm run build
+   npm run preview
+   ```
+
+## Netlify / CI notes
+
+- Ensure package.json contains a "build" script and a lockfile (package-lock.json / yarn.lock / pnpm-lock.yaml) is committed.
+- Force Node 18 for Netlify with one of:
+  - Add an `.nvmrc` containing `18` at repo root
+  - Add in package.json: `"engines": { "node": "18.x" }`
+  - Set environment variable NODE_VERSION = 18 in Netlify site settings
+- After changes, push to main and re-deploy. If the build fails, copy the full "Installing dependencies" / "Running build" error output for diagnosis.
+
+## Troubleshooting (common)
+
+- "No build script": add `"build": "next build"` (or the correct command) to package.json.
+- Node version mismatch: use .nvmrc / engines or set NODE_VERSION in CI.
+- Missing files/imports: ensure src/, public/, and assets referenced by code are committed.
+- If a bundler error names a missing package, confirm it exists in package.json and lockfile is committed.
+
+## Project structure (high level)
+
+- app/ or pages/ — Next.js app router / pages
+- src/ — TypeScript source
+- public/ — static assets
+- styles/ — Tailwind / global styles
+
+## Contributing
+
+- Bug reports and PRs welcome. Keep changes small and focused.
+
+## License
+
+- MIT
+
+## Developer Portfolio (example)
+
+# Developer Portfolio
+
+A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS.
 
 ## Features
 
-### 🖼️ Background Remover
+- **Hero Section** - Eye-catching introduction with profile image and social links
+- **About** - Personal background and professional summary
+- **Skills** - Organized by Languages, Frameworks, Libraries, Databases, Tools, and Platforms
+- **Projects** - Showcase of work with multi-category filtering
+- **Experience** - Professional work history and achievements
+- **Certifications** - Relevant certifications and credentials
+- **Dark Mode** - Seamless light/dark theme switching
+- **Responsive Design** - Optimized for all devices
 
-- Instantly remove backgrounds from any uploaded photo
-- Perfect for ID photos, passport pictures, or professional headshots
-- AI-powered background detection and removal
-- Download results as PNG with transparency
+## Tech Stack
 
-### 🎨 Background Changer for Passport Photos
+- **Framework**: Next.js 
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Language**: TypeScript
+- **Animations**: Smooth transitions and scroll reveals
 
-- Replace backgrounds with official colors (white, light blue, light gray, cream)
-- Specifically designed for passport and visa photo requirements
-- Easy color selection with preview
-- Professional-quality output
+## Getting Started
 
-### 📄 Image to PDF Converter
+1. Clone the repository
+2. Install dependencies: `npm install` or `pnpm install`
+3. Run the development server: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-- Convert multiple images into a single PDF document
-- Support for JPG and PNG formats (up to 10MB each)
-- Drag-and-drop interface with reordering capabilities
-- Perfect for document compilation and photo albums
+## Customization
 
-## Technical Stack
+- Update personal information in data files (`lib/skills-data.ts`, `lib/projects-data.ts`, etc.)
+- Modify colors and theme in `app/globals.css`
+- Replace profile images in the `public` folder
+- Update social media links in `components/hero-section.tsx`
 
-- **Framework:** Next.js 14 with App Router
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **PDF Generation:** jsPDF
-- **Image Processing:** Canvas API with custom algorithms
+## Deployment
 
-## Key Features
-
-- ✅ **No Registration Required** - All features available instantly
-- ✅ **Privacy-First** - All processing happens locally in your browser
-- ✅ **Responsive Design** - Works perfectly on desktop and mobile
-- ✅ **Drag-and-Drop Support** - Intuitive file upload experience
-- ✅ **Real-time Processing** - Fast image processing with progress feedback
-- ✅ **Professional Output** - High-quality results suitable for official documents
-
-## Installation
-
-1. Clone the repository:
-   \`\`\`bash
-   git clone <repository-url>
-   cd photo-tools-app
-   \`\`\`
-
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. Start the development server:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Build for Production
-
-\`\`\`bash
-npm run build
-npm start
-\`\`\`
-
-## Project Structure
-
-\`\`\`
-├── app/
-│ ├── components/ # React components
-│ │ ├── BackgroundRemover.tsx
-│ │ ├── BackgroundChanger.tsx
-│ │ ├── ImageToPDF.tsx
-│ │ ├── FileUpload.tsx
-│ │ └── LoadingSpinner.tsx
-│ ├── utils/ # Utility functions
-│ │ ├── backgroundRemoval.ts
-│ │ └── pdfConverter.ts
-│ ├── globals.css # Global styles
-│ ├── layout.tsx # Root layout
-│ └── page.tsx # Home page
-├── public/ # Static assets
-├── package.json
-├── tailwind.config.js
-├── next.config.js
-└── README.md
-\`\`\`
-
-## Usage
-
-### Background Remover
-
-1. Upload an image (JPG, PNG, up to 10MB)
-2. Wait for automatic background removal
-3. Download the result with transparent background
-
-### Background Changer
-
-1. Upload a photo
-2. Select from preset background colors
-3. Click "Change Background"
-4. Download the professional result
-
-### Image to PDF
-
-1. Upload multiple images
-2. Reorder them as needed
-3. Click "Convert to PDF"
-4. Download the compiled PDF document
-
-## Browser Compatibility
-
-- Modern browsers with Canvas API support
-- Chrome, Firefox, Safari, Edge (latest versions)
-- Mobile browsers supported
+Deploy easily to Vercel with one click or use any Node.js hosting platform.
