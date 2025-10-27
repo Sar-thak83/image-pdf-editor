@@ -2,7 +2,6 @@
 
 A privacy-first web application for photo editing and PDF manipulation. All processing happens in your browser — no uploads, no server, no data collection.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
 
 ## Features
 
@@ -15,6 +14,9 @@ A privacy-first web application for photo editing and PDF manipulation. All proc
 ## Live Demo
 
 🔗 **[Try it now](https://image-pdf-editor-sar-thak83.netlify.app/)** — No signup required!
+
+
+![Photo Tools App](https://raw.githubusercontent.com/Sar-thak83/image-pdf-editor/main/public/screenshot/imageurd.png)
 
 ## Quick Start
 
@@ -120,4 +122,3 @@ module.exports = {
 - ✅ **No cookies or tracking** — we don't collect analytics
 - ✅ **No uploads** — files stay in your browser's memory
 - ✅ **Open source** — audit the code yourself
-
